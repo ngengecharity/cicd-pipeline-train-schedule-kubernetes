@@ -1,7 +1,6 @@
 pipeline {
     agent any
-    environment {
-        //be sure to replace "charityngenge" with your own Docker Hub username
+    environment 
         DOCKER_IMAGE_NAME = "charityngenge/train-schedule"
     }
     stages {
