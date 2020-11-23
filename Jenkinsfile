@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "ngengecharity/train-schedule"
+        DOCKER_IMAGE_NAME = "charityngenge/train-schedule"
     }
     stages {
         stage('Build') {
@@ -44,10 +44,11 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                 kubernetesDeploy(
+                kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
+                )
             }
         }
     }
